@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 import br.com.passagem.aerea.entity.Trecho;
 import br.com.passagem.aerea.interfaces.ITrechoBO;
 
-@ManagedBean(name="trecho")
+@ManagedBean
 @SessionScoped
 public class TrechoMBean {
 	
@@ -17,8 +17,12 @@ public class TrechoMBean {
 	@EJB
 	ITrechoBO bo;
 	
-	public void cadastrar(){
+	public String cadastrar(){
 		bo.cadastrar(trecho);
+		trecho = new Trecho();
+		
+		return "";
+		
 	}
 
 	public Trecho getTrecho() {

@@ -8,28 +8,30 @@
 <h:body>
 	<f:view>
 		<h2>Cadastro de Clientes</h2>
-		<p:panel>
-			<h:panelGrid columns="2">
-				<h:outputText value="Nome" />
-				<p:inputText value="#{trechoBean.trecho.nome}"></p:inputText>
+		<h:form id="frm-trechos">
+			<p:panel>
+				<h:panelGrid columns="2">
+					<h:outputText value="Nome" />
+					<p:inputText value="#{trechoMBean.trecho.nome}"></p:inputText>
 
-				<h:outputText value="Horário de Saída" />
-				<p:inputText value=""></p:inputText>
+					<h:outputText value="Horário de Saída" />
+					<!-- <p:inputText value=""></p:inputText> -->
 
-				<h:outputText value="Horário de Chegada" />
-				<p:inputText value=""></p:inputText>
+					<h:outputText value="Horário de Chegada" />
+					<!-- <p:inputText value=""></p:inputText> -->
 
-				<h:outputText value="Número do Vôo" />
-				<p:inputText value="#{trechoBean.trecho.numeroVoo}"></p:inputText>
+					<h:outputText value="Número do Vôo" />
+					<p:inputText value="#{trechoMBean.trecho.numeroVoo}"></p:inputText>
 
-				<h:outputText value="Preço" />
-				<p:inputText value="#{trechoBean.trecho.preco}"></p:inputText>
+					<h:outputText value="Preço" />
+					<p:inputText value="#{trechoMBean.trecho.preco}"></p:inputText>
 
-			</h:panelGrid>
-			<h:panelGrid columns="2">
-				<h:commandButton value="Salvar" action="#{trechoBean.cadastrar}"/>
-			</h:panelGrid>
-		</p:panel>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:commandButton value="Salvar" action="#{trechoMBean.cadastrar}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
 	</f:view>
 </h:body>
 </html>

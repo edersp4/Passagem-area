@@ -2,6 +2,9 @@ package br.com.passagem.aerea.dao;
 
 import java.util.List;
 
+import javax.ejb.Local;
+
+@Local
 public interface Dao<T>{
 	public void save(T entity);
 	
