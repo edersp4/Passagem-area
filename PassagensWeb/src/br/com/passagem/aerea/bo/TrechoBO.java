@@ -5,6 +5,7 @@ import javax.ejb.Stateless;
 
 import br.com.passagem.aerea.dao.DaoGeneric;
 import br.com.passagem.aerea.entity.Trecho;
+import br.com.passagem.aerea.interfaces.ITrechoBO;
 
 @Stateless
 @Local
