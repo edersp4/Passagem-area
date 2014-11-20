@@ -4,28 +4,28 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import br.com.passagem.aerea.bo.TrechoBO;
 import br.com.passagem.aerea.entity.Trecho;
+import br.com.passagem.aerea.interfaces.ITrechoBO;
 
-
-
-@ManagedBean
+@ManagedBean(name="trecho")
 @SessionScoped
 public class TrechoMBean {
 	
 	
+	Trecho trecho = new Trecho();
 	
-	Trecho trecho ;
+	@EJB
+	ITrechoBO bo;
 	
+	public void cadastrar(){
+		bo.cadastrar(trecho);
+	}
+
 	public Trecho getTrecho() {
 		return trecho;
 	}
 
 	public void setTrecho(Trecho trecho) {
 		this.trecho = trecho;
-	}
-
-	public void cadastrar(){
-	
 	}
 }

@@ -27,6 +27,7 @@ public class Trecho implements Serializable{
 	private String nome;
 	
 	@Temporal(value=TemporalType.DATE)
+	@Column(name="HORARIO_SAIDA")
 	private Date horarioSaida;
 
 	@Temporal(value=TemporalType.DATE)

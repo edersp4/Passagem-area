@@ -5,10 +5,11 @@ import javax.ejb.Stateless;
 
 import br.com.passagem.aerea.dao.DaoGeneric;
 import br.com.passagem.aerea.entity.Cliente;
+import br.com.passagem.aerea.interfaces.IClienteBO;
 
 @Stateless
-@Local
-public class ClienteBO {
+@Local(IClienteBO.class)
+public class ClienteBO implements IClienteBO {
 
 	DaoGeneric<Cliente> dao = new DaoGeneric<Cliente>(Cliente.class) ;
 
