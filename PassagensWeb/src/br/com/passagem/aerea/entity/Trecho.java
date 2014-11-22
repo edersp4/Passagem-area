@@ -26,11 +26,11 @@ public class Trecho implements Serializable{
 	@Column(name="NOME")
 	private String nome;
 	
-	@Temporal(value=TemporalType.DATE)
+	@Temporal(value=TemporalType.TIMESTAMP)
 	@Column(name="HORARIO_SAIDA")
 	private Date horarioSaida;
 
-	@Temporal(value=TemporalType.DATE)
+	@Temporal(value=TemporalType.TIMESTAMP)
 	@Column(name="HORARIO_CHEGADA")
 	private Date horarioChegada;
 

@@ -20,7 +20,6 @@ public class TrechoMBean {
 	public String cadastrar(){
 		bo.cadastrar(trecho);
 		trecho = new Trecho();
-		
 		return "";
 		
 	}

@@ -15,20 +15,23 @@
 					<p:inputText value="#{trechoMBean.trecho.nome}"></p:inputText>
 
 					<h:outputText value="Horário de Saída" />
-					<!-- <p:inputText value=""></p:inputText> -->
+					<p:calendar value="#{trechoMBean.trecho.horarioSaida}" timeOnly="true" pattern="HH:mm" locale="pt" />
 
 					<h:outputText value="Horário de Chegada" />
-					<!-- <p:inputText value=""></p:inputText> -->
+					<p:calendar value="#{trechoMBean.trecho.horarioChegada}" timeOnly="true" pattern="HH:mm" locale="pt"/>
 
 					<h:outputText value="Número do Vôo" />
 					<p:inputText value="#{trechoMBean.trecho.numeroVoo}"></p:inputText>
 
 					<h:outputText value="Preço" />
-					<p:inputText value="#{trechoMBean.trecho.preco}"></p:inputText>
+					
+					<p:inputText value="#{trechoMBean.trecho.preco}">
+						<f:convertNumber pattern="#,##0.00"/>
+					</p:inputText>
 
 				</h:panelGrid>
 				<h:panelGrid columns="2">
-					<h:commandButton value="Salvar" action="#{trechoMBean.cadastrar}" />
+					<p:commandButton value="Salvar" action="#{trechoMBean.cadastrar}" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
