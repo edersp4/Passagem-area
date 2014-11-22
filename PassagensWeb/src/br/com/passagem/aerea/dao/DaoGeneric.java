@@ -11,7 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 @Stateless
 public class DaoGeneric<T extends Serializable> implements Dao<T>{
 	@PersistenceContext(unitName="fiapPU2")
-	private EntityManager em;
+	protected EntityManager em;
 	
 	private Class<T> entityClass;
 	

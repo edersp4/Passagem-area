@@ -18,4 +18,19 @@ public class ClienteBO implements IClienteBO {
 	public void cadastrar(Cliente cliente){
 		dao.save(cliente);
 	}
+	
+	public boolean login(Cliente cliente){
+		Cliente cli = null;
+		try {
+			cli = dao.buscarPorLoginSenha(cliente);
+			
+			if(cli != null)
+				return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }
