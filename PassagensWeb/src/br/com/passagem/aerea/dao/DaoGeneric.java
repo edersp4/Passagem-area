@@ -16,7 +16,6 @@ public class DaoGeneric<T extends Serializable> implements Dao<T>{
 	private Class<T> entityClass;
 	
 	public DaoGeneric() {
-		System.out.print("Testes");
 	}
 	
 	public DaoGeneric(Class<T> entityClass) {
@@ -46,9 +45,9 @@ public class DaoGeneric<T extends Serializable> implements Dao<T>{
 	
 	@Override
 	@SuppressWarnings({"unchecked","rawtypes"} )
-	public List<T> findAll(){
+	public List<T> findAll(Class<T> clazz){
 		CriteriaQuery query =  em.getCriteriaBuilder().createQuery();
-		query.select(query.from(entityClass));
+		query.select(query.from(clazz));
 		return em.createQuery(query).getResultList();
 	}
 	
