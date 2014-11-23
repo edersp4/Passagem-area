@@ -23,15 +23,12 @@ public class AssentoMBean {
 	@EJB
 	ITrechoBO bo2;
 	
-	public String trechoEscolhido;
+	public Trecho trechoEscolhido = new Trecho();
 	
 	public String cadastrar(){
-
-
-		assento.setTrecho(new Integer(this.trechoEscolhido).intValue());
-		bo.cadastrar(getAssento());
+		assento.setIdTrecho(trechoEscolhido);
+		bo.cadastrar(assento);
 		setAssento(new Assento());
-		
 		return "";
 	}
 	
@@ -47,11 +44,11 @@ public class AssentoMBean {
 		this.assento = assento;
 	}
 
-	public String getTrechoEscolhido() {
+	public Trecho getTrechoEscolhido() {
 		return trechoEscolhido;
 	}
 
-	public void setTrechoEscolhido(String trechoEscolhido) {
+	public void setTrechoEscolhido(Trecho trechoEscolhido) {
 		this.trechoEscolhido = trechoEscolhido;
 	}
 

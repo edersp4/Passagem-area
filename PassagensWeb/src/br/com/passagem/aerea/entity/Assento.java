@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,12 +30,17 @@ public class Assento implements Serializable{
 	@Column(name="CLASSEASSENTO")
 	String classeAssento;
 
-	@Column(name="idtrecho")
-	private int trecho;
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="ID_TRECHO")
+	private Trecho idTrecho;
+	
+	@Column(name="NUMERO")
+	private int numero;
 	
 	public int getIdAssento() {
 		return idAssento;
 	}
+	
 	public void setIdAssento(int idAssento) {
 		this.idAssento = idAssento;
 	}
@@ -48,12 +56,21 @@ public class Assento implements Serializable{
 	public void setClasseAssento(String classeAssento) {
 		this.classeAssento = classeAssento;
 	}
-	public int getTrecho() {
-		return trecho;
-	}
-	public void setTrecho(int trecho) {
-		this.trecho = trecho;
+
+	public int getNumero() {
+		return numero;
 	}
 
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public Trecho getIdTrecho() {
+		return idTrecho;
+	}
+
+	public void setIdTrecho(Trecho idTrecho) {
+		this.idTrecho = idTrecho;
+	}
 
 }
