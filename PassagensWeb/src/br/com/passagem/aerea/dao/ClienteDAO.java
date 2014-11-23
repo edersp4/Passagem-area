@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.TypedQuery;
 
 import br.com.passagem.aerea.entity.Cliente;
+import br.com.passagem.aerea.entity.Reserva;
 
 @Stateless
 public class ClienteDAO extends DaoGeneric<Cliente>{
@@ -26,6 +27,18 @@ public class ClienteDAO extends DaoGeneric<Cliente>{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void salvaReserva(Reserva reserva , Cliente cliente){
+		
+		try {
+			reserva.setCliente(cliente);
+			em.persist(reserva);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	

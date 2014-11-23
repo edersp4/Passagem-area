@@ -12,4 +12,5 @@ public class ReservaDAO extends DaoGeneric<Reserva>{
 	public List<Reserva> findAll() {
 		return super.findAll(Reserva.class);
 	}
+	
 }

@@ -1,5 +1,6 @@
 package br.com.passagem.aerea.managed.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import br.com.passagem.aerea.interfaces.IClienteBO;
 
 @ManagedBean
 @SessionScoped
-public class LoginMBean {
+public class LoginMBean implements Serializable{
 
 	private Cliente cliente = new Cliente();
 	
@@ -28,8 +29,10 @@ public class LoginMBean {
 	
 	public String login(){
 		listReservas.clear();
-		if(bo.login(cliente) != null)
+		if(bo.login(cliente) != null){
+			cliente = dao.buscarPorLoginSenha(cliente);
 			return "consulta-reserva";
+		}
 		return "";
 	}
 	

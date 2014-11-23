@@ -30,6 +30,10 @@ public class Reserva implements Serializable {
 	@JoinColumn(name="ID_CLIENTE")
 	private Cliente cliente;
 	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="ID_TRECHO")
+	private Trecho trecho;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -47,6 +51,12 @@ public class Reserva implements Serializable {
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	public Trecho getTrecho() {
+		return trecho;
+	}
+	public void setTrecho(Trecho trecho) {
+		this.trecho = trecho;
 	}
 	
 	

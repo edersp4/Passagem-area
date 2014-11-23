@@ -2,12 +2,16 @@ package br.com.passagem.aerea.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,6 +43,9 @@ public class Trecho implements Serializable{
 	
 	@Column(name="PRECO")
 	private Double preco;
+	
+	@OneToMany(cascade=CascadeType.ALL , fetch=FetchType.EAGER , mappedBy="trecho")
+	private List<Reserva> reservas;
 
 	public Integer getId() {
 		return id;
@@ -87,4 +94,13 @@ public class Trecho implements Serializable{
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
 }
