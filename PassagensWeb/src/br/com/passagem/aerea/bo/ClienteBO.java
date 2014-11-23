@@ -15,22 +15,31 @@ public class ClienteBO implements IClienteBO {
 	@EJB
 	ClienteDAO dao;
 	
+	
 	public void cadastrar(Cliente cliente){
 		dao.save(cliente);
 	}
 	
-	public boolean login(Cliente cliente){
+	public Cliente login(Cliente cliente){
 		Cliente cli = null;
 		try {
+			
 			cli = dao.buscarPorLoginSenha(cliente);
 			
 			if(cli != null)
-				return true;
+				return cli;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return null;
 	}
+	
+//	public List<Reserva>listarReservas(){
+//		if(cliente != null){
+//			return cliente.getReservas();
+//		}
+//		return new ArrayList<Reserva>();
+//	}
 }

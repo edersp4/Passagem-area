@@ -12,7 +12,7 @@ public interface Dao<T>{
 	
 	public void update(T entity);
 	
-	public T find(int entityId);
+	public T find(int entityId , Class<T>clazz);
 	
 	public List<T>findAll(Class<T> clazz);
 }

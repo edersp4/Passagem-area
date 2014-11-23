@@ -39,8 +39,8 @@ public class DaoGeneric<T extends Serializable> implements Dao<T>{
 	}
 	
 	@Override
-	public T find(int entityId){
-		return em.find(entityClass, entityId);
+	public T find(int entityId, Class<T>clazz){
+		return em.find(clazz, entityId);
 	}
 	
 	@Override

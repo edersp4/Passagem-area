@@ -1,12 +1,17 @@
 package br.com.passagem.aerea.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +42,10 @@ public class Cliente implements Serializable {
 	
 	@Column(name="SENHA")
 	private String senha;
+	
+	@OneToMany(cascade=CascadeType.ALL , fetch=FetchType.EAGER , mappedBy="cliente")
+	private List<Reserva>reservas = new ArrayList<Reserva>();
+	
 
 	public Integer getId() {
 		return id;
@@ -92,6 +101,14 @@ public class Cliente implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
 	}
 
 }

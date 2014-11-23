@@ -4,14 +4,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Login</title>
+	<title>Consulta de Reservas</title>
 </h:head>
 <h:body>
 	<f:view>
 		<h:form id="fmr-login">
-			<h2>Login</h2>
+			<h2>Consulta de Reservas</h2>
 			<p:panel>
-				<p:dataTable id="reserva-table" var="reser" value="#{reservaMBean.listReservas}" >
+				<p:dataTable id="reserva-table" var="reser" value="#{loginMBean.listReservas}" >
 					<p:column headerText="id">
 						<h:outputText value="#{reser.id}" />
 					</p:column>
@@ -20,8 +20,8 @@
 					</p:column>
 				</p:dataTable>
 				<h:panelGrid columns="2">
-					<p:commandButton value="Listar Reservas" action="#{reservaMBean.listarReserva()}" update="reserva-table"/>
-					<p:commandButton value="Limpar" action="#{reservaMBean.limpar()}" update="reserva-table"/>
+					<p:commandButton value="Listar Reservas" action="#{loginMBean.popularlistaReserva()}" update="reserva-table"/>
+					<p:commandButton value="Limpar" action="#{loginMBean.limparLista()}" update="reserva-table"/>
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
