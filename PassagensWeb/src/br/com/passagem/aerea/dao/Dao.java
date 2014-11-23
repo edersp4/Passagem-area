@@ -14,5 +14,9 @@ public interface Dao<T>{
 	
 	public T find(int entityId , Class<T>clazz);
 	
+	public T find(int entityId);
+	
 	public List<T>findAll(Class<T> clazz);
+	
+	public List<T>findAll();
 }

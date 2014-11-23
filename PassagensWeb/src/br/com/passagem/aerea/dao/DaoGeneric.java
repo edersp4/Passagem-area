@@ -22,6 +22,10 @@ public class DaoGeneric<T extends Serializable> implements Dao<T>{
 		this.entityClass = entityClass;
 	}
 	
+	public void setClass(final Class<T> classset) {
+	    this.entityClass = classset;
+	}
+	
 	@Override
 	public void save(T entity) {
 		em.persist(entity);
@@ -44,11 +48,26 @@ public class DaoGeneric<T extends Serializable> implements Dao<T>{
 	}
 	
 	@Override
+	public T find(int entityId){
+		return em.find(entityClass, entityId);
+	}
+	
+	@Override
 	@SuppressWarnings({"unchecked","rawtypes"} )
 	public List<T> findAll(Class<T> clazz){
 		CriteriaQuery query =  em.getCriteriaBuilder().createQuery();
 		query.select(query.from(clazz));
 		return em.createQuery(query).getResultList();
+	}
+	
+	@Override
+	@SuppressWarnings({"unchecked","rawtypes"} )
+	public List<T> findAll(){
+		CriteriaQuery query =  em.getCriteriaBuilder().createQuery();
+		query.select(query.from(entityClass));
+		List lista = em.createQuery(query).getResultList();
+		System.out.println("encontrei " + lista.size() + " registros");
+		return lista;
 	}
 	
 }

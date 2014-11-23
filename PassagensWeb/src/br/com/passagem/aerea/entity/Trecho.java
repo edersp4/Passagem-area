@@ -46,6 +46,11 @@ public class Trecho implements Serializable{
 	
 	@OneToMany(cascade=CascadeType.ALL , fetch=FetchType.EAGER , mappedBy="trecho")
 	private List<Reserva> reservas;
+	
+	@OneToMany(mappedBy ="trecho", // o "one" 
+			targetEntity = Assento.class, // o "many"
+			fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Assento> assentos;
 
 	public Integer getId() {
 		return id;

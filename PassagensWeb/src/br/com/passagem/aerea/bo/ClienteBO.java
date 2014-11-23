@@ -15,7 +15,6 @@ public class ClienteBO implements IClienteBO {
 	@EJB
 	ClienteDAO dao;
 	
-	
 	public void cadastrar(Cliente cliente){
 		dao.save(cliente);
 	}

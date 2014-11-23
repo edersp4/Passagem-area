@@ -1,5 +1,7 @@
 package br.com.passagem.aerea.bo;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -19,4 +21,8 @@ public class TrechoBO implements ITrechoBO{
 		dao.save(trecho);
 	}
 	
+	public List<Trecho> recuperaTrechos(){
+		List<Trecho> lista = dao.findAll();
+		return lista;
+	}
 }
