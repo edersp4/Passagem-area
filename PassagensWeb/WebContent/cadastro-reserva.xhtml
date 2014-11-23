@@ -12,14 +12,28 @@
 			<h2>Reserva</h2>
 			<p:panel>
 				<h:panelGrid columns="2">
-					
-					<h:outputText value="Assento" />
-					<p:inputText value="#{reservaMBean.reserva.numeroAssento}"></p:inputText>
+					<p:outputLabel value="Selecione um Trecho" />
+					<p:selectOneMenu id="trecho-combo" value="#{assentoMBean.trechoReserva}">
+						<f:selectItems var="tre" value="#{assentoMBean.recuperaTrechos()}" itemLabel="#{tre.nome}" itemValue="#{tre}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<h:panelGrid>
+					<p:dataTable id="table-assentos" var="assento" value="#{assentoMBean.listAssentos}">
+						<p:column headerText="id">
+							<h:outputText value="#{assento.numero}" />
+						</p:column>
+						<p:column headerText="Trecho">
+							<h:outputText value="#{assento.idTrecho.nome}" />
+						</p:column>
+						<p:column headerText="Classe">
+							<h:outputText value="#{assento.classeAssento}" />
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
 
-					</h:panelGrid>
 				<h:panelGrid columns="2">
-					<p:commandButton value="Salvar" action="#{reservaMBean.salvar()}"/>
-					<p:commandButton value="Fazer Reserva" action="cadastro-reserva"/>
+					<p:commandButton value="Salvar" action="#{reservaMBean.salvar()}" />
+					<p:commandButton value="Consultar Assentos" action="#{assentoMBean.popularAssentos()}" update="fmr-reserva" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
